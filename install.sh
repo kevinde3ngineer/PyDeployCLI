@@ -4,7 +4,7 @@
 #!/bin/bash
 
 echo "===================================="
-echo "   Installing PyDeployCLI v1.0"
+echo "   Installing PyDeployCLI v1"
 echo "===================================="
 echo ""
 
@@ -19,6 +19,13 @@ if ! command -v git >/dev/null 2>&1; then
     echo "Installing git..."
     sudo apt update
     sudo apt install git -y
+fi
+
+# Install Python3 if missing
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "Installing Python3..."
+    sudo apt update
+    sudo apt install -y python3
 fi
 
 INSTALL_DIR="/opt/pydeploy"
@@ -49,5 +56,5 @@ sudo chmod +x /usr/local/bin/pydeploy
 echo ""
 echo "===================================="
 echo " PyDeployCLI Installed Successfully!"
-echo " Run with: sudo pydeploy"
+echo " Run with: pydeploy"
 echo "===================================="
