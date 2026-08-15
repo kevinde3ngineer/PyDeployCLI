@@ -116,8 +116,8 @@ while True:
             elif choice in ("status", "6"):
                 print(f"\n{g}Full Status:{R} ")
                 subprocess.run(["sudo", "systemctl", "status", service_app])
-                print(f"{g}Returning In 5 Seconds...{R}") # 5 is my arbitrary choice (change it if you want)
-                time.sleep(5)
+                print(f"{g}Returning In 2 Seconds...{R}") # 2 is my arbitrary choice (change it if you want)
+                time.sleep(2)
 
             elif choice in ("logs", "7"):
                 print(f"\n{g}Logs (Press Enter To Exit):{R} ")
