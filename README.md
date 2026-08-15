@@ -5,7 +5,7 @@
   <a href="https://discord.gg/uqmDfXAZe"><img src="https://img.shields.io/badge/Discord-%20KevinDe3ngineer%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
   <a href="https://github.com/kevinde3ngineer/PyDeployCLI-v1.0"><img src="https://img.shields.io/badge/Support-Raspberry_Pi_OS_/_Debian-yellow?style=for-the-badge" alt="Support: Raspberry Pi OS / Debian"></a>
-  <a href="https://github.com/kevinde3ngineer/PyDeployCLI-v1.0/blob/main/RELEASE%20Folder/RELEASE_1.1.md"><img src="https://img.shields.io/badge/Release-v1.1-green?style=for-the-badge" alt="Release v1.1"></a>
+  <a href="https://github.com/kevinde3ngineer/PyDeployCLI-v1.0/blob/main/RELEASE%20Folder/RELEASE_1.2.md"><img src="https://img.shields.io/badge/Release-v1.2-green?style=for-the-badge" alt="Release v1.2"></a>
 </p>
 
 PyDeploy is a Terminal CLI that is automated to turn a Python script from a GitHub Repository into a `systemd` service on your Raspberry Pi, allowing it to run continously while providing tools to monitor its status and view logs. This version is a lightweight alternative to Docker for simple Python deployments.
@@ -101,8 +101,15 @@ Set Up [2]
 - Only tested on Raspberry Pi OS (Debian Trixie)
 - Personal access tokens are passed as command-line arguments to `git`, which may be briefly visible to other local users via process listings `ps aux`
 
+## Uninstall PyDeploy One-Line Install
+To remove PyDeploy's one-line install, run the following command:
+```bash
+sudo rm -rf /opt/pydeploy
+sudo rm -f /usr/local/bin/pydeploy
+```
+
 ## Note From Dev
-Thank you for checking out my project, PyDeploy. This was a passion project focused on improving my Python skills while building a way to deploy, run, and monitor Python applications on a Raspberry Pi. PyDeploy CLI's current release is v1.1.
+Thank you for checking out my project, PyDeploy. This was a passion project focused on improving my Python skills while building a way to deploy, run, and monitor Python applications on a Raspberry Pi. PyDeploy CLI's current release is v1.2.
 
 I’ll likely release a more polished v2.0 in the future, so stay tuned. If you have any questions, contact me on my Discord Server.
 
