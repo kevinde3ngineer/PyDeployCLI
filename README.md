@@ -2,7 +2,7 @@
 ![PyDeploy Logo](PyDeploy.png)
 
 <p align="center">
-  <a href="https://discord.gg/uqmDfXAZe"><img src="https://img.shields.io/badge/Discord-%20KevinDe3ngineer%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://discord.gg/6yXptJYJw"><img src="https://img.shields.io/badge/Discord-%20KevinDe3ngineer%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
   <a href="https://github.com/kevinde3ngineer/PyDeployCLI-v1.0"><img src="https://img.shields.io/badge/Support-Raspberry_Pi_OS_/_Debian-yellow?style=for-the-badge" alt="Support: Raspberry Pi OS / Debian"></a>
   <a href="https://github.com/kevinde3ngineer/PyDeployCLI-v1.0/blob/main/RELEASE%20Folder/RELEASE_1.2.md"><img src="https://img.shields.io/badge/Release-v1.2-green?style=for-the-badge" alt="Release v1.2"></a>
