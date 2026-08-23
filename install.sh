@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # PyDeploy CLI v1.0 install.sh
 # MIT License: Copyright (c) 2026 Kevin de 3ngineer
@@ -28,7 +29,7 @@ if ! command -v python3 >/dev/null 2>&1; then
     sudo apt install -y python3
 fi
 
-INSTALL_DIR="/opt/pydeploy"
+INSTALL_DIR="/opt/pydeploycli"
 
 echo "Installing to $INSTALL_DIR..."
 
@@ -47,14 +48,14 @@ fi
 # Make executable
 sudo chmod +x "$INSTALL_DIR/PyDeployCLI.py"
 
-# Create global command (THIS is what makes `sudo pydeploy` work)
+# Create global command (this is what makes pydeploycli` work)
 echo '#!/bin/bash
-python3 /opt/pydeploy/PyDeployCLI.py "$@"' | sudo tee /usr/local/bin/pydeploy > /dev/null
+python3 /opt/pydeploycli/PyDeployCLI.py "$@"' | sudo tee /usr/local/bin/pydeploycli > /dev/null
 
-sudo chmod +x /usr/local/bin/pydeploy
+sudo chmod +x /usr/local/bin/pydeploycli
 
 echo ""
 echo "===================================="
 echo " PyDeployCLI Installed Successfully!"
-echo " Run with: pydeploy"
+echo " Run with: pydeploycli"
 echo "===================================="
