@@ -18,12 +18,12 @@ r = RED = "\033[31m"
 R = RESET = "\033[0m"
 
 print("\nPyDeploy CLI v1.0 Python Script"), print("MIT License: Copyright (c) 2026 Kevin de 3ngineer\n")
-print(f"""{b}██████╗ ██╗   ██╗{y}██████╗ ███████╗██████╗ ██╗      ██████╗ ██╗   ██╗{R}     {g}██████╗██╗     ██╗    ██╗   ██╗ ██╗    ██████╗
-{b}██╔══██╗╚██╗ ██╔╝{y}██╔══██╗██╔════╝██╔══██╗██║     ██╔═══██╗╚██╗ ██╔╝{R}    {g}██╔════╝██║     ██║    ██║   ██║███║   ██╔═████╗
-{b}██████╔╝ ╚████╔╝ {y}██║  ██║█████╗  ██████╔╝██║     ██║   ██║ ╚████╔╝{R}     {g}██║     ██║     ██║    ██║   ██║╚██║   ██║██╔██║
-{b}██╔═══╝   ╚██╔╝  {y}██║  ██║██╔══╝  ██╔═══╝ ██║     ██║   ██║  ╚██╔╝{R}      {g}██║     ██║     ██║    ╚██╗ ██╔╝ ██║   ████╔╝██║
-{b}██║        ██║   {y}██████╔╝███████╗██║     ███████╗╚██████╔╝   ██║{R}       {g}╚██████╗███████╗██║     ╚████╔╝  ██║██╗╚██████╔╝
-{b}╚═╝        ╚═╝   {y}╚═════╝ ╚══════╝╚═╝     ╚══════╝ ╚═════╝    ╚═╝{R}        {g}╚═════╝╚══════╝╚═╝      ╚═══╝   ╚═╝╚═╝ ╚═════╝{R}
+print(f"""{b}██████╗ ██╗   ██╗{y}██████╗ ███████╗██████╗ ██╗      ██████╗ ██╗   ██╗{R}     {g}██████╗██╗     ██╗    ██╗   ██╗ ██╗
+{b}██╔══██╗╚██╗ ██╔╝{y}██╔══██╗██╔════╝██╔══██╗██║     ██╔═══██╗╚██╗ ██╔╝{R}    {g}██╔════╝██║     ██║    ██║   ██║███║
+{b}██████╔╝ ╚████╔╝ {y}██║  ██║█████╗  ██████╔╝██║     ██║   ██║ ╚████╔╝{R}     {g}██║     ██║     ██║    ██║   ██║╚██║
+{b}██╔═══╝   ╚██╔╝  {y}██║  ██║██╔══╝  ██╔═══╝ ██║     ██║   ██║  ╚██╔╝{R}      {g}██║     ██║     ██║    ╚██╗ ██╔╝ ██║
+{b}██║        ██║   {y}██████╔╝███████╗██║     ███████╗╚██████╔╝   ██║{R}       {g}╚██████╗███████╗██║     ╚████╔╝  ██║
+{b}╚═╝        ╚═╝   {y}╚═════╝ ╚══════╝╚═╝     ╚══════╝ ╚═════╝    ╚═╝{R}        {g}╚═════╝╚══════╝╚═╝      ╚═══╝   ╚═╝{R}
 """)
 
 print(f"{g}kevinde3ngineer{R} - Dedicated To Running Python Applications Continuously For Raspberry PI Seamlessly With Systemd!")
@@ -33,7 +33,7 @@ while True:
     print(f"\n{b}Py{y}Deploy{R} CLI v.1.0")
 
     print(f"{g}Select An Option:{R} "), print("\n[1] Control Panel"), print("[2] Set Up"), print("[3] Quit")
-    option = input(f"\n{g}-->{R} ").strip().lower()
+    option = input(f"\n{b}-{y}->{R} ").strip().lower()
 
     # Control Panel Option
     if option in ("controlpanel", "control panel", "1"):
@@ -54,14 +54,32 @@ while True:
         [Q] --  Quit    -- exit control panel"""
 
         # List
-        ls = subprocess.run(["ls"], capture_output=True, text=True)
-        ls_file = ls.stdout.split()
+        ls_files = []
+        found=False
 
         # Setup
+        for root, dirs, files in os.walk("."):
+            for ls_file in files:
+                if ls_file.endswith(".service"):
+                    ls_files.append(ls_file)
+                    found=True
+
+        if not found:
+            print(f"\nError: No Service Files were found, Please Check Your Repo{r}!{R}")
+            print(f"\n{r}Exiting in 5 seconds...{R}")
+            time.sleep(5)
+            sys.exit()
+
         while True:
-            time.sleep(1), print(), print(ls_file) # time.sleep() is for smoother feel
-            service_app = input(f"{g}Your Current Service File Name:{R} ")
-            if service_app in ls_file:
+            time.sleep(1), print(), print(ls_files)
+            service_app = input(f"{g}Your Current Service File Name (or 'q' to quit):{R} ").strip()
+
+            if service_app.lower() == "q":
+                print(f"\n{r}Exiting in 5 seconds...{R}")
+                time.sleep(5)
+                sys.exit()
+
+            if service_app in ls_files:
                 break
             else:
                 print(f"\nError: Typo{r}!{R}")
@@ -92,7 +110,7 @@ while True:
         # Selections
         while True:
             print(), print(status), print(select_a_control)
-            choice = input(f"\n{g}--->{R} ").strip().lower()
+            choice = input(f"\n{b}-{y}->{R} ").strip().lower()
             if choice in ("enable", "1"):
                 enable_check = subprocess.run(["sudo", "systemctl", "enable", service_app])
                 report(enable_check, "enable", "Enabled", service_app)
@@ -263,7 +281,7 @@ while True:
         requirements = os.path.join(repo_path, "requirements.txt")
 
         if os.path.exists(requirements):
-            print(f"\n{g}Requirements.txt Found: Installing Dependencies{R}")
+            print(f"\n{g}Requirements.txt Found: Installing Dependencies...{R}")
 
             venv_python = os.path.join(repo_path, "venv", "bin", "python3")
             subprocess.run([venv_python, "-m", "pip", "install", "-r", "requirements.txt"], cwd=repo_path, check=True, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
@@ -329,7 +347,7 @@ while True:
         with open(service_file, "w") as file:
             file.write(service)
 
-        print(f"\n{g}{service_file} Created Successfully!{R}")
+        print(f"\n{service_file} {g}Created Successfully!{R}")
 
         # Add service file into systemcd
         subprocess.run(["sudo", "cp", service_file, f"/etc/systemd/system/{service_file}"])
@@ -341,7 +359,7 @@ while True:
         # Enable the service for startup on boot:
         while True:
             print(f"\n{g}Enable On Boot?:{R} "), print("\n[1] Yes"), print("[2] No")
-            enable = input(f"\n{g}--->{R} ").strip().lower()
+            enable = input(f"\n{b}-{y}->{R} ").strip().lower()
 
             if enable in ("yes", "1"):
                 print(f"\nEnabling On Boot...")
@@ -356,7 +374,7 @@ while True:
         # Start the service
         while True:
             print(f"\n{g}Start Service?:{R}"), print("\n[1] Yes"), print("[2] No")
-            enable = input(f"\n{g}--->{R} ").strip().lower()
+            enable = input(f"\n{b}-{y}->{R} ").strip().lower()
 
             if enable in ("yes", "1"):
                 print("\nStarting In Background...")
@@ -370,7 +388,7 @@ while True:
         
         while True:
             print(f"\n{g}Go Back To Main Menu?:{R}"), print("\n[1] Yes"), print("[2] No")
-            enable = input(f"\n{g}--->{R} ").strip().lower()
+            enable = input(f"\n{b}-{y}->{R} ").strip().lower()
 
             if enable in ("yes", "1"):
                 print("\nReturning...")
