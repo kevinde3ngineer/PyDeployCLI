@@ -5,24 +5,12 @@
   <a href="https://discord.gg/6yXptJYJw"><img src="https://img.shields.io/badge/Discord-%20KevinDe3ngineer%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
   <a href="https://github.com/kevinde3ngineer/PyDeployCLI-v1.0"><img src="https://img.shields.io/badge/Support-Raspberry_Pi_OS_/_Debian-yellow?style=for-the-badge" alt="Support: Raspberry Pi OS / Debian"></a>
-  <a href="https://github.com/kevinde3ngineer/PyDeployCLI-v1.0/blob/main/RELEASE%20Folder/RELEASE_1.2.md"><img src="https://img.shields.io/badge/Release-v1.2-green?style=for-the-badge" alt="Release v1.2"></a>
+  <a href="https://github.com/kevinde3ngineer/PyDeployCLI-v1.0/blob/main/RELEASE%20Folder/RELEASE_1.3.md"><img src="https://img.shields.io/badge/Release-v1.3-green?style=for-the-badge" alt="Release v1.3"></a>
 </p>
 
 PyDeploy is a Terminal CLI that is automated to turn a Python script from a GitHub Repository into a `systemd` service on your Raspberry Pi, allowing it to run continously while providing tools to monitor its status and view logs. This version is a lightweight alternative to Docker for simple Python deployments.
 
 Built for one job, PyDeploy CLI is dedicated to running Python applications continuously for Raspberry PI seamlessly with `Systemd`. No more manual `venv` setup, no hand-written unit files, and no more memorizing `systemctl` flags. My official support and recommendation channel is my Discord server. Give this repo a `star` to support my work!
-
-## Features
-- Auto-installs missing dependencies; checks for `git`, `pip3`, and `venv`, and installs them if missing
-- Clones your repo and sets up a virtual environment automatically
-- Generates a `systemd` unit file for your chosen Python file
-- Built-in control panel to enable, start, stop, disable, restart, and monitor your service
-- Live status indicator (🟢/🔴) and streaming logs via `journalctl`
-
-## Requirements
-- Raspberry Pi OS (or any Debian-based Linux distro) running `systemd`
-- Internet access (for cloning repos and installing dependencies)
-- Python 3.x
 
 ## Installation
 Option A - Clone It Yourself:
@@ -45,8 +33,20 @@ curl -fsSL https://raw.githubusercontent.com/kevinde3ngineer/PyDeployCLI-v1.0/ma
 
 > Run PyDeploy CLI using the following command:
 ```bash
-sudo pydeploy
+pydeploy
 ```
+
+## Features
+- Auto-installs missing dependencies; checks for `git`, `pip3`, and `venv`, and installs them if missing
+- Clones your repo and sets up a virtual environment automatically
+- Generates a `systemd` unit file for your chosen Python file
+- Built-in control panel to enable, start, stop, disable, restart, and monitor your service
+- Live status indicator (🟢/🔴) and streaming logs via `journalctl`
+
+## Requirements
+- Raspberry Pi OS (or any Debian-based Linux distro) running `systemd`
+- Internet access (for cloning repos and installing dependencies)
+- Python 3.x
 
 ## Usage
 Run the script and you will be prompted with the main menu:
@@ -109,8 +109,8 @@ sudo rm -f /usr/local/bin/pydeploy
 ```
 
 ## Note From Dev
-Thank you for checking out my project, PyDeploy. This was a passion project focused on improving my Python skills while building a way to deploy, run, and monitor Python applications on a Raspberry Pi. PyDeploy CLI's current release is v1.2.
+Thank you for checking out my project, PyDeploy. This was a passion project focused on improving my Python skills while building a way to deploy, run, and monitor Python applications on a Raspberry Pi. PyDeploy CLI's current release is v1.3.
 
-I’ll likely release a more polished v2.0 in the future, so stay tuned. If you have any questions, contact me on my Discord Server.
+I’ll likely release a more polished v2 in the future, so stay tuned. If you have any questions, contact me on my Discord Server.
 
 
