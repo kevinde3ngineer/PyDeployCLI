@@ -17,7 +17,7 @@ Option A - Clone It Yourself:
 
 > No dependencies are required to be installed ahead of time beyond `git` and `python3`; PyDeploy checks for and installs `pip3` and `venv` itself if they're missing.
 ```bash
-git clone https://github.com/kevinde3ngineer/PyDeployCLI-v1.0.git
+git clone https://github.com/kevinde3ngineer/PyDeployCLI.git
 cd PyDeployCLI-v1.0
 sudo python3 PyDeployCLI.py
 ```
@@ -28,12 +28,12 @@ Option B - One-Line Install:
 
 > Always safe to read `install.sh` before piping it to `bash`; that's true of any one-line installer, not just this one. Always `curl` again when PyDeploy updates!
 ```bash
-curl -fsSL https://raw.githubusercontent.com/kevinde3ngineer/PyDeployCLI-v1.0/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kevinde3ngineer/PyDeployCLI/main/install.sh | bash
 ```
 
 > Run PyDeploy CLI using the following command:
 ```bash
-pydeploy
+pydeploycli
 ```
 
 ## Features
@@ -104,8 +104,8 @@ Set Up [2]
 ## Uninstall PyDeploy One-Line Install
 To remove PyDeploy's one-line install, run the following command:
 ```bash
-sudo rm -rf /opt/pydeploy
-sudo rm -f /usr/local/bin/pydeploy
+sudo rm -rf /opt/pydeploycli
+sudo rm -f /usr/local/bin/pydeploycli
 ```
 
 ## Note From Dev
