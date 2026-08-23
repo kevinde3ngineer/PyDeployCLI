@@ -28,7 +28,7 @@ Option B - One-Line Install:
 
 > Always safe to read `install.sh` before piping it to `bash`; that's true of any one-line installer, not just this one. Always `curl` again when PyDeploy updates!
 ```bash
-curl -fsSL https://raw.githubusercontent.com/kevinde3ngineer/PyDeployCLI-v1.0/main/Scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kevinde3ngineer/PyDeployCLI-v1.0/main/install.sh | bash
 ```
 
 > Run PyDeploy CLI using the following command:
