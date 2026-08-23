@@ -1,7 +1,7 @@
+#!/bin/bash
+
 # PyDeploy CLI v1.0 install.sh
 # MIT License: Copyright (c) 2026 Kevin de 3ngineer
-
-#!/bin/bash
 
 echo "===================================="
 echo "   Installing PyDeployCLI v1"
